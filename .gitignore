@@ -1,0 +1,19 @@
+# Maven
+target/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config files
+application.properties
+application-h2.properties
