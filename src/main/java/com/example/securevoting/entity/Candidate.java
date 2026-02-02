@@ -13,11 +13,11 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Candidate name
+   
     @Column(nullable = false, length = 100)
     private String name;
 
-    // Optional description/manifesto
+    
     @Column(length = 255)
     private String description;
 
