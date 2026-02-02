@@ -24,7 +24,7 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
-    // Public registration for normal users
+
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> registerUser(
             @Valid @RequestBody UserRegistrationRequest request) {
@@ -32,7 +32,7 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse("User registered with id: " + user.getId()));
     }
 
-    // Admin registration endpoint can be restricted behind ADMIN or create manually
+   
     @PostMapping("/register-admin")
     public ResponseEntity<AuthResponse> registerAdmin(
             @Valid @RequestBody UserRegistrationRequest request) {
@@ -40,7 +40,7 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse("Admin registered with id: " + admin.getId()));
     }
 
-    // Session-based login; Spring Security will create a session
+    
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody AuthRequest request) {
         Authentication authentication = authenticationManager.authenticate(
@@ -48,9 +48,9 @@ public class AuthController {
                         request.getUsername(), request.getPassword()
                 )
         );
-        // If authentication succeeds, security context/session is set automatically
+        
         return ResponseEntity.ok(new AuthResponse("Login successful"));
     }
 
-    // Basic logout (relies on Spring Security default /logout endpoint if enabled)
+    
 }
